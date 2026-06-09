@@ -1,0 +1,3 @@
+# Project dependencies for Module 4 - Automation Lab
+# This script uses only Python built-in modules (datetime, os)
+# No external packages required for this lab
