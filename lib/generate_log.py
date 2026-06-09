@@ -18,12 +18,19 @@ def generate_log(data):
 
 def fetch_data():
     """Fetch sample post data from a public API."""
-    import requests
+    try:
+        import requests
+    except ImportError:
+        return {}
 
-    response = requests.get(
-        "https://jsonplaceholder.typicode.com/posts/1",
-        timeout=10,
-    )
+    try:
+        response = requests.get(
+            "https://jsonplaceholder.typicode.com/posts/1",
+            timeout=10,
+        )
+    except requests.RequestException:
+        return {}
+
     if response.status_code == 200:
         return response.json()
     return {}
